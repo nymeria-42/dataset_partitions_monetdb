@@ -34,7 +34,7 @@ for partition in range(num_partitions):
         conn.commit()
         cursor.execute(
             "COPY INTO {} (path_image, class) FROM '{}' (path_image, class)  USING DELIMITERS ',', E'\n'; ".format(
-                table_name, path
+                table_name, path_partition
             )
         )
         cursor.close()
